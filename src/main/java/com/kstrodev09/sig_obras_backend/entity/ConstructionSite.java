@@ -32,12 +32,7 @@ import lombok.Setter;
 @Table(name = "construction_sites")
 
 public class ConstructionSite implements Serializable {
-    /*
-        *Relación con la entidad Municipality de Muchos a uno
-    */
-    @ManyToOne
-    @JoinColumn(name = "municipality_id", nullable = false)
-    private Municipality municipality;
+
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,4 +65,10 @@ public class ConstructionSite implements Serializable {
     @Column(name = "state", nullable = false)
     private ConstructionSiteState state;
 
+        /*
+        *Relación con la entidad Municipality de Muchos a uno
+    */
+    @ManyToOne
+    @JoinColumn(name = "municipality_id", nullable = false)
+    private Municipality municipality;
 }
