@@ -42,7 +42,9 @@ import lombok.Setter;
  * *(@GeneratedValue) es una anotación de JPA que se utiliza para especificar
  * *cómo se generará el valor de la clave primaria.
  * *En este caso, se utiliza la estrategia de generación de identidad
- * *(IDENTITY), lo que significa que el valor se generará automáticamente por la
+ * *(IDENTITY), 
+ * 
+ * *lo que significa que el valor se generará automáticamente por la
  * *base de datos.
  * *(@Column) es una anotación de JPA que se utiliza para especificar el nombre
  * *de la columna en la tabla de la base de datos a la que se mapeará el campo.
