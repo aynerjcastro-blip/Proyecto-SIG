@@ -33,7 +33,7 @@ public class MunicipalityController {
      * Find all municipalities
      * @return List of municipalities   
      */
-    @GetMapping("path")
+    @GetMapping
     public List<Municipality> findAll() {
         return municipalityService.findAll();
     }
