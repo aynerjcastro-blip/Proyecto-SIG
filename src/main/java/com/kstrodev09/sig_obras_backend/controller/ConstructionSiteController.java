@@ -1,15 +1,22 @@
 package com.kstrodev09.sig_obras_backend.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.kstrodev09.sig_obras_backend.entity.ConstructionSite;
 import com.kstrodev09.sig_obras_backend.entity.ConstructionSiteState;
+import com.kstrodev09.sig_obras_backend.entity.StatusHistory;
 import com.kstrodev09.sig_obras_backend.service.ConstructionSiteService;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class ConstructionSiteController {
     
     private final ConstructionSiteService constructionSiteService;
@@ -20,7 +27,15 @@ public class ConstructionSiteController {
     
 
     @PutMapping("/construction-sites/{id}/status")
-    public void recordChange(@PathVariable Long id, @RequestBody ConstructionSiteState previousState, @RequestBody ConstructionSiteState newState) {
-
+    public ConstructionSite updateStatus(@PathVariable Long id, @RequestBody ConstructionSiteState newState) {
+        return constructionSiteService.updateState(id, newState);
+        
     }
+
+    @GetMapping("/construction-sites/{id}/history")
+    public List<StatusHistory> findHistoryByConstructionSite(@PathVariable Long id) {
+        return constructionSiteService.findHistory(id);
+    }
+
+    
 }
