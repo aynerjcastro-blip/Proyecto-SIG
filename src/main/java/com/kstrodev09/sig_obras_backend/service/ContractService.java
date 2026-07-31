@@ -3,9 +3,7 @@ package com.kstrodev09.sig_obras_backend.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 import com.kstrodev09.sig_obras_backend.entity.Contract;
-import com.kstrodev09.sig_obras_backend.entity.ConstructionSite;
 import com.kstrodev09.sig_obras_backend.repository.ContractRepository;
 
 @Service
@@ -22,8 +20,8 @@ public class ContractService {
                 .orElseThrow(() -> new RuntimeException("Contrato no encontrado con número: " + contractNumber));
     }
 
-    public List<Contract> findByConstructionSite(ConstructionSite constructionSite) {
-        return contractRepository.findByConstructionSite(constructionSite);
+    public List<Contract> findByConstructionSite(Long constructionSiteId) {
+        return contractRepository.findByConstructionSiteId(constructionSiteId);
     }
 
     public List<Contract> findAll() {

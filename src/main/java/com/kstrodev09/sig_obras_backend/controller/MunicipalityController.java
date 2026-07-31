@@ -2,9 +2,10 @@ package com.kstrodev09.sig_obras_backend.controller;
 
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import com.kstrodev09.sig_obras_backend.entity.Municipality;
@@ -19,8 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@Controller
-@RequestMapping("/municipalities")
+@RestController
+@RequestMapping("/api/municipalities")
 
 public class MunicipalityController {
     private final MunicipalityService municipalityService;
@@ -44,7 +45,7 @@ public class MunicipalityController {
      * @return the municipality with the specified ID
      */
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Municipality findById(@PathVariable Long id) {
         return municipalityService.findById(id);
     }
