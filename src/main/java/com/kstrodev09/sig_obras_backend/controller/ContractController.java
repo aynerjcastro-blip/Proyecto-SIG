@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kstrodev09.sig_obras_backend.entity.ConstructionSite;
+
 import com.kstrodev09.sig_obras_backend.entity.Contract;
 import com.kstrodev09.sig_obras_backend.service.ContractService;
 
