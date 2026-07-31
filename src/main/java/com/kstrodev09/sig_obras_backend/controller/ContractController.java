@@ -29,17 +29,17 @@ public class ContractController {
         this.contractService = contractService;
     }
 
-    @GetMapping
+    @GetMapping("/search")
     public Contract findByContract(@RequestParam String contractNumber) {
         return contractService.findByContractNumber(contractNumber);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/by-construction-site/{constructionSiteId}")
     public List<Contract> findbyConstructionSiteId(@PathVariable Long constructionSiteId) {
         return contractService.findByConstructionSite(constructionSiteId);
     }
 
-    @GetMapping("/by-construction-site/{constructionSiteId}")
+    @GetMapping()
     public List<Contract> findAll() {
         return contractService.findAll();
     }
